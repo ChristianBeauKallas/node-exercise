@@ -25,7 +25,7 @@ router.get("/:id?", async (req, res, next) => {
 router.post("/", async (req, res, next) => {
     try {
         const { id } = req.params;
-        const updatedUser = req.body;
+        const newUser = req.body;
         const data = await db.add(newUser);
 
         res.json(data);
@@ -38,6 +38,7 @@ router.post("/", async (req, res, next) => {
 router.put("/:id", async (req, res, next) => {
     try {
         const { id } = req.params;
+        const updatedUser = req.body;
         const data = await db.update(id, updatedUser);
 
         res.json(data);
